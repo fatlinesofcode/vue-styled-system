@@ -1,24 +1,59 @@
-# trigger2020
-
-## Project setup
+## vue-styled-components with styled-system example
+- https://github.com/styled-components/vue-styled-components
+- https://styled-system.com/api
+## add theme provider
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+<div id="app">
+<ThemeProvider :theme="theme">
+    <main>
+        <router-view />
+    </main>
+</ThemeProvider>
+</div>
 ```
 
-### Lints and fixes files
+## create box component
 ```
-npm run lint
+<template>
+  <StyledBox v-bind="$props">
+    <slot />
+  </StyledBox>
+</template>
+
+<script>
+import styled from 'vue-styled-components'
+import { space, width, fontSize, color } from 'styled-system'
+
+const props = {
+  fontSize: [Object, Number, String, Array],
+  m: [Object, Number, String, Array],
+  p: [Object, Number, String, Array],
+  color: [Object, String, Array],
+  bg: [Object, String, Array],
+  backgroundColor: [Object, String, Array],
+  opacity: [Object, Number, Array]
+}
+
+const StyledBox = styled('div', props)`
+  ${space}
+  ${width}
+  ${fontSize}
+  ${color}
+`
+export default {
+  name: 'Box',
+  components: {
+    StyledBox
+  },
+  props
+}
+</script>
+
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## usage
+```
+<Box m="1" :bg="['red']" :fontSize="[2, 3]">box 1</Box
+<Box m="1" bg="blue" fontSize="0">box 2</Box
+<Box fontSize="0">Box3 component</Box>
+```
