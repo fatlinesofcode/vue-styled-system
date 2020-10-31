@@ -1,20 +1,3 @@
-## vue-styled-components with styled-system example
-- https://github.com/styled-components/vue-styled-components
-- https://styled-system.com/api
-
-## add theme provider
-```
-<div id="app">
-<ThemeProvider :theme="theme">
-    <main>
-        <router-view />
-    </main>
-</ThemeProvider>
-</div>
-```
-
-## create box component and map propTypes
-```
 <template functional>
   <component :is="$options.components.StyledBox" v-bind="props">
     <slot />
@@ -46,12 +29,3 @@ export default {
   props
 }
 </script>
-
-```
-
-## usage
-```
-<Box m="1" :bg="['red']" :fontSize="[2, 3]">box 1</Box
-<Box m="1" bg="blue" fontSize="0">box 2</Box
-<Box fontSize="0">Box3 component</Box>
-```

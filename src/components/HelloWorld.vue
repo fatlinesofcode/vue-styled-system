@@ -3,13 +3,13 @@
     <h1>{{ msg }}</h1>
     <Box mt="1" :bg="['red']" :fontSize="[2, 3]">
       Box1 component
-      <Box bg="blue">Box2 component</Box>
+      <Box bg="blue" pt="2">Box2 component</Box>
     </Box>
   </div>
 </template>
 
 <script>
-import Box from '@/components/layout/Box'
+import Box from '@/components/styled-system/Box'
 
 export default {
   name: 'HelloWorld',
